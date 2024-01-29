@@ -1,0 +1,24 @@
+:root {
+  --black:#040613;
+  --white:#e1ebf4;
+  --red:#dc6873;
+  --alt-red:#e1bcaa;
+  --pink:#efc1ef;
+  --green:#59a854;
+  --alt-green:#b5c9c0;
+  --blue:#145da1;
+  --alt-blue:#c6c8ee;
+  --yellow:#e8edc4;
+  --alt-yellow:#f5f2ed;
+  --purple:#673f88;
+}
+
+* {
+  font-family: 'Noto Serif HK', 'Times New Roman', serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--alt-yellow);
+}

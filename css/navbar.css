@@ -1,0 +1,56 @@
+nav {
+  width: 5em;
+  height: 100vh;
+  position: fixed;
+  left: -5em;
+  background-color: var(--alt-green);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: 0.5s;
+}
+nav:hover {
+    left: 0;
+}
+nav::after {
+  content: '☰';
+  width: 2em;
+  height: 1.5em;
+  border-radius: 0 1em 1em 0;
+  position: absolute;
+  top: 0;
+  left: 2.5em;
+  font-size: 2em;
+  background-color: var(--alt-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  width: 5em;
+  height: 25vh;
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav a span {
+  color: var(--black);
+  position: relative;
+  transition: 0,2s;
+}
+nav a::before {
+  content: '';
+  width: 0%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  background-color: var(--yellow);
+  transition: 0.2s;
+}
+nav a:hover::before {
+  width: 100%;
+}
