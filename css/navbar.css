@@ -29,9 +29,9 @@ nav::after {
 
 nav a {
   width: 5em;
-  height: 25vh;
   position: relative;
   text-decoration: none;
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +40,9 @@ nav a span {
   color: var(--black);
   position: relative;
   transition: 0,2s;
+}
+nav a.ig span {
+  font-size: 1.5em;
 }
 nav a::before {
   content: '';
@@ -50,6 +53,12 @@ nav a::before {
   left: 0;
   background-color: var(--yellow);
   transition: 0.2s;
+}
+nav a.ig::before {
+  background-image: linear-gradient(45deg, #f09433 0%, #f6784c 25%, #ec3753 50%, #dc3376 75%, #cc2898 100%);
+}
+nav a.ig:hover span {
+  color: var(--white);
 }
 nav a:hover::before {
   width: 100%;
