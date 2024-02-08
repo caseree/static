@@ -1,0 +1,108 @@
+<nav>
+    <a id="nav-home" href="index.html">
+        <object data="img/icons/home.svg" type="image/svg+xml"></object>
+    </a>
+    <a id="nav-shop" href="buy.html">
+        <object data="img/icons/shop.svg" type="image/svg+xml"></object>
+    <a id="nav-blog" href="blog.html">
+        <object data="img/icons/blog.svg" type="image/svg+xml"></object>
+    </a>
+    <a id="nav-about" href="about.html">
+        <object data="img/icons/about.svg" type="image/svg+xml"></object>
+    </a>
+    <a id="nav-ig" href="https://www.instagram.com/caseree_ja/">
+        <object data="img/icons/ig.svg" type="image/svg+xml"></object>
+    </a>
+</nav>
+
+<style>
+    nav {
+        width: 5rem;
+        height: 100vh;
+        position: fixed;
+        left: -5em;
+        background-color: var(--green);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        transition: 0.5s;
+        z-index: 1;
+    }
+    nav:hover {
+        left: 0;
+    }
+    nav::after {
+        content: '☰';
+        width: 2em;
+        height: 1.5em;
+        border-radius: 0 1em 1em 0;
+        position: absolute;
+        top: 0;
+        left: 2.5em;
+        font-size: 2em;
+        background-color: var(--green);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav a {
+        width: 5em;
+        position: relative;
+        text-decoration: none;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav a object {
+        width: 1.5em;
+        position: relative;
+        transition: 0,2s;
+    }
+    nav a:hover object {
+        filter: blur(2px) invert(100%);
+    }
+    nav a#nav-home::before {
+        content: '主\A\A\A頁';
+    }
+    nav a#nav-shop::before {
+        content: '產\A\A\A品'
+    }
+    nav a#nav-blog::before {
+        content: '日\A\A\A誌'
+    }
+    nav a#nav-about::before {
+        content: '關\A\A\A於'
+    }
+    nav a#nav-ig::before {
+        content: 'I\A\A\AG';
+        text-align: center;
+        background-image: linear-gradient(45deg, #f09433 0%, #f6784c 25%, #ec3753 50%, #dc3376 75%, #cc2898 100%);
+    }
+    nav a::before {
+        font-weight: bold;
+        white-space: pre;
+        color: var(--white);
+        width: 0%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        background-color: var(--dark-green);
+        transition: 0.2s;
+        overflow: hidden;
+    }
+    nav a:hover::before {
+        width: 100%;
+    }
+    @media only screen and (orientation: landscape) {
+        nav {
+            left: 0;
+        }
+        nav::after {
+            display: none;
+        }
+    }
+</style>

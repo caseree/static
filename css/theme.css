@@ -1,14 +1,14 @@
 :root {
-  --black:#040613;
+  --black:#5a584e;
   --white:#e1ebf4;
   --red:#dc6873;
   --alt-red:#e1bcaa;
   --pink:#efc1ef;
-  --green:#59a854;
-  --alt-green:#b5c9c0;
+  --green:#b5c9c0;
+  --dark-green:#728c80;
   --blue:#145da1;
   --alt-blue:#c6c8ee;
-  --yellow:#e8edc4;
+  --yellow:#dfdecb;
   --alt-yellow:#f5f2ed;
   --purple:#673f88;
 }
@@ -20,5 +20,17 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--alt-yellow);
+  background-color: var(--yellow);
+  display: flex;
+}
+
+main {
+  width: 100vw;
+}
+
+@media only screen and (orientation: landscape) {
+  main {
+    width: calc(100vw-5rem);
+    margin-left: 5rem;
+  }
 }

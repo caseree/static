@@ -5,70 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caseree</title>
     <link href="https://fonts.googleapis.com/css2?family=Freehand&family=Noto+Serif+HK:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        @keyframes cover-grow {
+            to {font-size: 40vmin; background-position: center 100%;}
+        }
+        @keyframes pop-left {
+            to {transform: translateX(0);}
+        }
+        div#cover {
+            width: 100%;
+            height: 100vh;
+            color: var(--black);
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        div#cover * {
+            width: 100%;
+            margin: 1vh 5vw;
+        }
+        div#cover h1 {
+            font-size: 8vmin;
+            font-weight: bold;
+            background-image: url('img/newspaper.jpg');
+            background-size: cover;
+            background-position: center 0%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: cover-grow linear both;
+            animation-timeline: view(-50% 30%);
+        }
+        div#cover h2 {
+            top: 10vh;
+            font-size: 6vmin;
+        }
+        div#cover h3 {
+            font-size: 4vmin;
+        }
+        div.card {
+            width: 70vw;
+            height: 40vh;
+            margin: 10vh 0;
+            border-radius: 0 20vh 20vh 0;
+            padding: 5em 5em 5em 2em;
+            color: var(--white);
+            background-color: var(--red);
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            transform: translateX(-70vw);
+            animation: pop-left linear both;
+            animation-timeline: view(90% 0%);
+        }
+        div#what-img.card {
+            background-image: url('img/logo.jpeg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--white);
+        }
+        div#whose-img.card {
+            background-image: url('img/team.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--white);
+        }
+        div#how-img.card {
+            background-image: url('img/diy.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--white);
+        }
+        /* div#who.card::after {
+            content: '';
+            width: 70vw;
+            height: 40vh;
+            border-radius: 0 20vh 20vh 0;
+            padding: 5em 5em 5em 2em;
+            background-image: url('img/caseree.png');
+            background-size: cover;
+            position: absolute;
+        } */
+    </style>
     <script src="js/htmx.min.js"></script>
+    <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script>
 </head>
 <body>
-    <nav>
-        <a href=""><span>主頁</span></a>
-        <a href="buy"><span>產品</span></a>
-        <a href="blogs"><span>日誌</span></a>
-        <a href="about"><span>關於</span></a>
-        <a class="ig" href="https://www.instagram.com/caseree_ja/"><span><i class="fa-brands fa-instagram"></i></span></a>
-    </nav>
+    <nav hx-get="navbar.html" hx-swap="outerHTML" hx-trigger="load"></nav>
     <main>
-        <div id="cover" class="page">
-            <div class="block">
-                <h1>Caseree</h1>
-                <h2>用回憶，為你的每一天護航</h2>
-                <h3>我們提供更可持續的方式保存你的回憶</h3>
-            </div>
+        <div id="cover">
+            <h1>Caseree</h1>
+            <h2>用回憶，為你的每一天護航</h2>
+            <h3>我們提供更可持續的方式保存你的回憶</h3>
         </div>
-        <div id="what" class="page">
-            <div class="block">
+        <div id="what-img" class="card"></div>
+        <div id="who" class="card">
                 <h2>甚麼是Caseree?</h2>
                 Caseree是一家售賣手工客製化手機殼的學生公司,<br>
                 我們以 ESG （Environmental 、Social，Governance）為主要理念，<br>
                 致力於使用環保物料生產更可持續的產品。<br>
                 在體驗營商的同時，長遠也希望對社會產生貢獻。<br>
-            </div>
-            <div class="block">
-                <h2>Caseree是甚麼意思？</h2>
-                Caseree 取名自公司三個著重點：<br>
-                recycle - 我們嘅產品，由容易被分解物料製作而成，可在堆填區重新分解，減少對堆填區嘅負擔<br>
-                free - 給予用戶自由，發揮創意去設計屬於佢哋嘅手機殼<br>
-                three - 我哋顧客嘅三個購買途徑，DIY, Custom, Direct purchase<br>
-                目標為在提供客製化服務的同時，也喚起大眾對環境保護的關注
-            </div>
         </div>
-        <div id="who" class="page">
-            <div class="block">
-                <h2>我們是誰？</h2>
-                我們是參與了本年度JA青年創業體驗計劃，<br>
-                來自新界鄉議局元朗區中學的學生，<br>
-                希望能以我們的熱誠，為社會以至環境出一分力
-            </div>
+        <div id="what" class="card">
+            <h2>Caseree是甚麼意思？</h2>
+            Caseree 取名自公司三個著重點：<br>
+            recycle - 我們嘅產品，由容易被分解物料製作而成，可在堆填區重新分解，減少對堆填區嘅負擔<br>
+            free - 給予用戶自由，發揮創意去設計屬於佢哋嘅手機殼<br>
+            three - 我哋顧客嘅三個購買途徑，DIY, Custom, Direct purchase<br>
+            目標為在提供客製化服務的同時，也喚起大眾對環境保護的關注
         </div>
-        <div id="why" class="page">
-            <div class="block">
-                <h2>Caseree的產品和其他手機殼有何分別？</h2>
-                我們提供客製化服務，<br>
-                讓用戶將具有紀念價值的文件成為手機殼的一部分，<br>
-                把回憶轉換成更實用，可持續的生活用品
-            </div>
+        <div id="whose-img" class="card"></div>
+        <div id="whose" class="card">
+            <h2>我們是誰？</h2>
+            我們是參與了本年度JA青年創業體驗計劃，<br>
+            來自新界鄉議局元朗區中學的學生，<br>
+            希望能以我們的熱誠，為社會以至環境出一分力
+        </div>
+        <div id="how-img" class="card"></div>
+        <div id="how" class="card">
+            <h2>Caseree的產品和其他手機殼有何分別？</h2>
+            我們提供客製化服務，<br>
+            讓用戶將具有紀念價值的文件成為手機殼的一部分，<br>
+            把回憶轉換成更實用，可持續的生活用品
         </div>
     </main>
-    <div id="slide">
-        <div id="slider">
-            <img id="logo" src="img/slides/logo.jpeg">
-            <img id="team" src="img/slides/team.jpeg">
-            <img id="diy" src="img/slides/diy.jpeg">
-        </div>
-    </div>
-    <script src="js/slide.js"></script>
 </body>
 </html>
